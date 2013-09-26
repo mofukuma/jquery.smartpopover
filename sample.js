@@ -11,7 +11,7 @@ $(function() {
 
 
 	//sample1-------------------------------------
-	$("#sakana").to({"left":230,"top":10}, 500, "swing", function(){
+	$("#sakana").to({"left":570,"top":10}, 500, "swing", function(){
 		$(this).trigger("mousedown");
 
 		$(this).clone().attr("id","")
