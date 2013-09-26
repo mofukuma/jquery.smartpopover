@@ -3,7 +3,9 @@ jquery.smartpopover
 
 Auto layouting balloon popover always inside window for jQuery.
 
-Refer to the jQuery SmartPopover site for examples.
+To help creating your webapp editor window, balloon popover of charactor speech, etc.  
+
+Refer to the [jQuery SmartPopover] site for examples.
 
 
 Usage

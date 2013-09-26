@@ -29,7 +29,9 @@
         var target = this;
 
         var destroy = function(e) {
-            if (e && e.target && $(e.target).parents().hasClass("js-smartpopover")) return;
+            if (e && e.target && 
+                $(e.target).parents().andSelf().filter(".js-smartpopover,.js-smartpopover-target").length > 0 )
+                     return;
 
             $(target).removeClass("js-smartpopover-target");
             $(target).off("mousemove", onresize);
@@ -62,7 +64,6 @@
         var only = (opt.only !== undefined) ? opt.only : true; //1つの吹き出しのみ
         var outerclickclose =
             (opt.outerclickclose !== undefined) ? opt.outerclickclose : true; //吹き出し外をクリックで閉じる
-        var transitionms = opt.transitionms || 0; //吹き出しの動きを滑らかに ミリ秒で指定
         var zindex = ("z-index" in opt) ? opt["z-index"] : 10000;
 
         //既に出ている吹き出しを削除
@@ -84,6 +85,8 @@
             position: "absolute",
             opacity: 0
         }).appendTo(root);
+
+        //実測
         var pop = {
             w: popdom.width(),
             h: popdom.height()
@@ -234,11 +237,12 @@
                 }
             };
 
+            var winmargin = arrowwidth*2 +4;
             $.each(points, function(k, v) {
-                points[k].x = (v.x > win.x + win.w) ? win.x + win.w :
-                    (v.x < win.x) ? win.x : v.x;
-                points[k].y = (v.y > win.y + win.h) ? win.y + win.h :
-                    (v.y < win.y) ? win.y : v.y;
+                points[k].x = (v.x > win.x + win.w - winmargin) ? win.x + win.w - winmargin:
+                    (v.x < win.x + winmargin) ? win.x + winmargin : v.x;
+                points[k].y = (v.y > win.y + win.h - winmargin) ? win.y + win.h - winmargin:
+                    (v.y < win.y + winmargin) ? win.y + winmargin : v.y;
 
             });
 
@@ -318,10 +322,11 @@
             }
 
             //はみ出し修正
-            placed.y = (placed.y + pop.h > win.y + win.h) ? placed.y - (placed.y + pop.h - (win.y + win.h)) :
-                (placed.y < win.y) ? placed.y + (win.y - placed.y) : placed.y;
-            placed.x = (placed.x + pop.w > win.x + win.w) ? placed.x - (placed.x + pop.w - (win.x + win.w)) :
-                (placed.x < win.x) ? placed.x + (win.x - placed.x) : placed.x;
+            winmargin = arrowwidth;
+            placed.y = (placed.y + pop.h > win.y + win.h - winmargin) ? placed.y - (placed.y + pop.h - (win.y + win.h - winmargin)) :
+                (placed.y < win.y + winmargin) ? win.y + winmargin : placed.y;
+            placed.x = (placed.x + pop.w > win.x + win.w - winmargin) ? placed.x - (placed.x + pop.w - (win.x + win.w - winmargin)) :
+                (placed.x < win.x + winmargin) ? win.x + winmargin : placed.x;
 
             popwin.css({
                 left: placed.x,
@@ -360,10 +365,6 @@
 
         root.fadeIn(100);
         onresize();
-
-        if (transitionms > 0) {
-            root.css("transition", "left " + transitionms + "ms linear 0s, top " + transitionms + "ms linear 0s");
-        }
 
         if (always) {
             $(window).on("resize scroll", onresize);
