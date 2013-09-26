@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mofukuma">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>jQuery.SmartPopover samples</title>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery-ui-1.10.3.custom.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery.smartpopover.js"></script>
+    <script src="lib/kmagine.min.js"></script>
+    <script src="sample.js"></script>
+    <script src="lib/prettify.js"></script>
+    <link rel="stylesheet" href="lib/prettify.css">
+    <script src="lib/kmagine.min.js"></script><style type="text/css">.bigfont {
+  font-size: 100px;
+  line-height: 120%;
+  white-space: nowrap;
+}
+.midfont {
+  font-size: 50px;
+  line-height: 120%;
+  white-space: nowrap;
+}
+.whitefont {
+  color: #fefefe;
+  font-size: 50px;
+  line-height: 120%;
+  white-space: nowrap;
+}
+</style>
+    <!--link(rel='stylesheet', href='css/main.css')-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://kumaden.grrr.jp" class="brand">Kumagata-Denkyu</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://kumaden.grrr.jp">Home</a></li>
+              <li><a href="https://github.com/mofukuma/jquery.smartpopover">Github</a></li>
+              <li><a href="http://twitter.com/mofukuma">Twitter</a></li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>jQuery.SmartPopover</h1>
+      <p>
+        Auto layouting balloon popover always inside window for jQuery.<br>
+        To help creating your webapp editor window, balloon popover of charactor speech, etc.<br>
+        <br>
+        常に画面外にはみ出さない吹き出しを出すプラグインですクマ
+      </p><a href="https://github.com/mofukuma/jquery.smartpopover" class="btn btn-success"><i class="icon-arrow-down icon-white"></i>Download</a><br><br><br><br><br>
+      <h2>Sample1</h2>
+      <pre class="prettyprint linenums">$(&quot;#sakana&quot;).on(&quot;mousedown touchstart&quot;, function(e){
+	$(this).smartPopover(
+		&quot;&lt;div class=bigfont&gt;Drag me!&lt;/div&gt;&quot;
+	);
+});</pre><img id="sakana" style="z-index:1000" src="img/sakana.png"><br><br><br>
+      <h2>Sample2</h2>
+      <pre class="prettyprint linenums">$(&quot;#sakana2&quot;).on(&quot;mousedown touchstart&quot;, function(e){
+	$(this).smartPopover(
+		&quot;&lt;div class=midfont &gt;MetroUI style&lt;/div&gt;&quot;,
+		 {
+		 	&quot;background-color&quot;:&quot;#48b1f2&quot;,
+		 	&quot;border-radius&quot;: 0
+		 }
+	);
+});
+</pre><img id="sakana2" style="z-index:1000;left:230px;top:10px;" src="img/sakana.png"><br><br><br>
+      <h2>Sample3</h2>
+      <pre class="prettyprint linenums">$(&quot;#sakana3&quot;).on(&quot;mousedown touchstart&quot;, function(e){
+	$(this).smartPopover(
+		&quot;&lt;div class=whitefont &gt;Black and Narrow arrow&lt;/div&gt;&quot;,
+		 {
+		 	&quot;background-color&quot;:&quot;#333&quot;,
+		 	&quot;arrowsize&quot;: 30,
+		 	&quot;arrowwidth&quot;: 7
+		 }
+	);
+});</pre><img id="sakana3" style="z-index:1000;left:230px;top:10px;" src="img/sakana.png">
+      <div style="height:300px;"></div>
+    </div>
+    <div id="select-tooltip">
+      <div style="width:468px;" class="container">
+        <div class="row">
+          <div class="span4">
+            <input id="select-id" type="text" placeholder="id" value="**This is editor widget sample." class="select span4">
+          </div>
+          <div class="span2">
+            <button id="selectbtn-del" class="btn">x</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">pos</div>
+          <div class="span1">
+            <input id="select-x" type="text" placeholder="x" class="select span1">
+          </div>
+          <div class="span1">
+            <input id="select-y" type="text" placeholder="y" class="select span1">
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">sprite</div>
+          <div class="span2">
+            <input id="select-sprite" type="text" placeholder="spriteid" class="select span2">
+          </div>
+          <div class="span1 labeltext">opacity</div>
+          <div class="span2">
+            <input id="select-opacity" type="text" placeholder="opacity" step="0.01" max="1" min="0" class="select span2">
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">scale</div>
+          <div class="span1">
+            <input id="select-scaleX" type="text" placeholder="scalex" class="select span1">
+          </div>
+          <div class="span1">
+            <input id="select-scaleY" type="text" placeholder="scaley" class="select span1">
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">rotate</div>
+          <div class="span1">
+            <input id="select-rotate" type="text" placeholder="rotate" class="select span1">
+          </div>
+          <div class="span1">
+            <input id="select-rotateX" type="text" placeholder="rotateX" class="select span1">
+          </div>
+          <div class="span1">
+            <input id="select-rotateY" type="text" placeholder="rotateY" class="select span1">
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">z-index</div>
+          <div class="span2">
+            <input id="select-z-index" type="text" placeholder="z-index" class="select span2">
+          </div>
+          <div class="span1 labeltext">display</div>
+          <div class="span2">
+            <div data-toggle="buttons-radio" class="btn-group">
+              <button id="select-display-" class="select btn active">show</button>
+              <button id="select-display-none" class="select btn">hide</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span1 labeltext">class</div>
+          <div class="span2">
+            <input id="select-class" type="text" placeholder="class" class="select span2">
+          </div>
+          <div class="span1 labeltext">overflow</div>
+          <div class="span2">
+            <div data-toggle="buttons-radio" class="btn-group">
+              <button id="select-overflow-" class="select btn active">visible</button>
+              <button id="select-overflow-hidden" class="select btn">hidden</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <div style="bottom:0; position:fixed; width:0px; height:0px; z-index:100" class="kmagine"></div>
+</html>

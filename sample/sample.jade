@@ -1,0 +1,140 @@
+!!! 5
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='author', content='mofukuma')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    title jQuery.SmartPopover samples
+
+    script(src='lib/jquery.min.js')
+    script(src='lib/jquery-ui-1.10.3.custom.min.js')
+
+    link(rel='stylesheet', href='lib/bootstrap/css/bootstrap.min.css')
+    script(src='lib/bootstrap/js/bootstrap.min.js')
+
+    script(src='../jquery.smartpopover.js')
+    script(src='lib/kmagine.min.js')
+    script(src='sample.js')
+
+    script(src='lib/prettify.js')
+    link(rel='stylesheet', href='lib/prettify.css')
+    script(src='lib/kmagine.min.js')
+
+    :less
+      .bigfont{ font-size:100px;line-height:120%; white-space:nowrap; }
+      .midfont{ font-size:50px;line-height:120%; white-space:nowrap; }
+      .whitefont{ color:#fefefe; font-size:50px;line-height:120%; white-space:nowrap; }
+
+    //link(rel='stylesheet', href='css/main.css')
+  body
+    .navbar.navbar-inverse
+      .navbar-inner
+        .container
+          button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='http://kumaden.grrr.jp') Kumagata-Denkyu
+          .nav-collapse.collapse
+            ul.nav
+              li.active
+                a(href='http://kumaden.grrr.jp') Home
+              li
+                a(href='https://github.com/mofukuma/jquery.smartpopover') Github
+              li
+                a(href='http://twitter.com/mofukuma') Twitter
+          ///.nav-collapse 
+    .container
+      h1 jQuery.SmartPopover
+      p.
+        Auto layouting balloon popover always inside window for jQuery.<br>
+        To help creating your webapp editor window, balloon popover of charactor speech, etc.<br>
+        <br>
+        常に画面外にはみ出さない吹き出しを出すプラグインですクマ
+      a.btn.btn-success(href='https://github.com/mofukuma/jquery.smartpopover')
+        i.icon-arrow-down.icon-white
+        |Download
+      br
+      br
+      br
+      br
+      br
+      h2 Sample1
+      pre.prettyprint.linenums
+        = '$("#sakana").on("mousedown touchstart", function(e){\n\t$(this).smartPopover(\n\t\t"<div class=bigfont>Drag me!</div>"\n\t);\n});'
+
+      img#sakana(style="z-index:1000", src="img/sakana.png")
+      br
+      br
+      br
+      h2 Sample2
+      pre.prettyprint.linenums
+        = '$("#sakana2").on("mousedown touchstart", function(e){\n\t$(this).smartPopover(\n\t\t"<div class=midfont >MetroUI style</div>",\n\t\t {\n\t\t \t"background-color":"#48b1f2",\n\t\t \t"border-radius": 0\n\t\t }\n\t);\n});\n'
+      img#sakana2(style="z-index:1000;left:230px;top:10px;", src="img/sakana.png")
+      br
+      br
+      br
+      h2 Sample3
+      pre.prettyprint.linenums
+        = '$("#sakana3").on("mousedown touchstart", function(e){\n\t$(this).smartPopover(\n\t\t"<div class=whitefont >Black and Narrow arrow</div>",\n\t\t {\n\t\t \t"background-color":"#333",\n\t\t \t"arrowsize": 30,\n\t\t \t"arrowwidth": 7\n\t\t }\n\t);\n});'
+      img#sakana3(style="z-index:1000;left:230px;top:10px;", src="img/sakana.png")
+
+      div(style="height:300px;")
+
+    div#select-tooltip
+      div.container(style='width:468px;')
+        div.row
+          div.span4
+            input.select#select-id.span4(type='text', placeholder='id', value='**This is editor widget sample.')
+          div.span2
+            button#selectbtn-del.btn x
+        div.row
+          div.span1.labeltext pos
+          div.span1
+            input.select#select-x.span1(type='text', placeholder='x')
+          div.span1
+            input.select#select-y.span1(type='text', placeholder='y')
+        div.row
+          div.span1.labeltext sprite
+          div.span2
+            input.select#select-sprite.span2(type='text', placeholder='spriteid')
+
+          div.span1.labeltext opacity
+          div.span2
+            input.select#select-opacity.span2(type='text', placeholder='opacity', step="0.01", max="1", min="0")
+        div.row
+          div.span1.labeltext scale
+          div.span1
+            input.select#select-scaleX.span1(type='text', placeholder='scalex')
+          div.span1
+            input.select#select-scaleY.span1(type='text', placeholder='scaley')
+        div.row
+          div.span1.labeltext rotate
+          div.span1
+            input.select#select-rotate.span1(type='text', placeholder='rotate')
+          div.span1
+            input.select#select-rotateX.span1(type='text', placeholder='rotateX')
+          div.span1
+            input.select#select-rotateY.span1(type='text', placeholder='rotateY')
+        div.row
+          div.span1.labeltext z-index
+          div.span2
+            input.select#select-z-index.span2(type='text', placeholder='z-index')
+          div.span1.labeltext display
+          div.span2
+            div.btn-group(data-toggle="buttons-radio")
+              button.select#select-display-.btn.active show
+              button.select#select-display-none.btn hide
+        div.row
+          div.span1.labeltext class
+          div.span2
+            input.select#select-class.span2(type='text', placeholder='class')
+          div.span1.labeltext overflow
+          div.span2
+            div.btn-group(data-toggle="buttons-radio")
+              button.select#select-overflow-.btn.active visible
+              button.select#select-overflow-hidden.btn hidden
+
+  .kmagine(style="bottom:0; position:fixed; width:0px; height:0px; z-index:100")
