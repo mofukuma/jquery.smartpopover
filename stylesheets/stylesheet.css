@@ -325,10 +325,7 @@ blockquote {
   padding: 0 0 0 30px;
 }
 
-ul li {
-  list-style: disc inside;
-  padding-left: 20px;
-}
+
 
 ol li {
   list-style: decimal inside;
