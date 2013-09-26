@@ -2,6 +2,7 @@ jquery.smartpopover
 ===================
 
 Auto layouting balloon popover always inside window for jQuery.
+
 Refer to the jQuery SmartPopover site for examples.
 
 
@@ -14,6 +15,7 @@ Requires jQuery 1.8+.
 <script src='jquery-1.8.1.js'></script>
 <script src='jquery.smartpopover.js'></script>
 ```
+
 
 Creates new popover.
 
@@ -37,7 +39,10 @@ $("#target").smartPopover("<div>...</div>", {"background-color":"#48b1f2", "bord
 ```
 
 
-TODO
+Other options
+``` javascript
+//TODO
+```
 
 
 Acknowledgements
@@ -46,5 +51,5 @@ Acknowledgements
 © 2013, mofukuma. Released under the [MIT 
 License](http://www.opensource.org/licenses/mit-license.php).
 
- * [Website](http://kumaden.grrr.jp) (kumaden.grrr.jp)
+ * [Website](http://kumaden.grrr.jp) (http://kumaden.grrr.jp)
  * [Twitter](http://twitter.com/mofukuma) (@mofukuma)
