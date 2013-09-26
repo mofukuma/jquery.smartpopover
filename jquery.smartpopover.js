@@ -34,7 +34,7 @@
             $(target).removeClass("js-smartpopover-target");
             $(target).off("mousemove", onresize);
             $(window).off("resize scroll", onresize);
-            $(target).off("redraw", onresize);　　
+            $(target).off("redraw", onresize);
             $(document).off("mousedown", destroy);
             $(".js-smartpopover").fadeOut(100, function() {
                 $(this).remove()
@@ -51,8 +51,8 @@
         opt = opt || {};
 
         var always = opt.always || true; //常に画面内に
-        var arrowsize = opt.arrowsize || 14; //矢印の大きさ
-        var arrowwidth = opt.arrowwidth || 14; //矢印の横幅
+        var arrowsize = opt.arrowsize || 12; //矢印の大きさ
+        var arrowwidth = opt.arrowwidth || 12; //矢印の横幅
         var arrowmargin = opt.arrowmargin || 1; //矢印の指す場所からの位置
         var bgcolor = opt["background-color"] || "#f5f5f5"; //吹き出しの色
         var bgcolor2 = opt["background-color2"] || bgcolor; //吹き出しの色グラデーション
@@ -137,7 +137,7 @@
                     "border-bottom": tb,
                     "border-right": "",
                     "left": -1 * arrow - 2 + i,
-                    "top": -1 * arrowwidth / 2,
+                    "top": -1 * arrowwidth,
                 },
                 right: {
                     "border-left": "",
@@ -145,14 +145,14 @@
                     "border-bottom": tb,
                     "border-right": cb,
                     "left": arrowmargin + 2 - i,
-                    "top": -1 * arrowwidth / 2,
+                    "top": -1 * arrowwidth,
                 },
                 bottom: {
                     "border-left": tb,
                     "border-top": "",
                     "border-bottom": cb,
                     "border-right": tb,
-                    "left": -1 * arrowwidth / 2,
+                    "left": -1 * arrowwidth,
                     "top": arrowmargin + 2 - i,
                 },
                 top: {
@@ -160,7 +160,7 @@
                     "border-top": cb,
                     "border-bottom": "",
                     "border-right": tb,
-                    "left": -1 * arrowwidth / 2,
+                    "left": -1 * arrowwidth,
                     "top": -1 * arrow - 2 + i,
                 }
             };
@@ -370,7 +370,7 @@
             $(document).on("mousemove", onresize);
             $(target).on("redraw", onresize);
         }
-        if (outerclickclose) {　　
+        if (outerclickclose) {
             $(document).on("mousedown", destroy);
         }
 
