@@ -1,0 +1,29 @@
+{
+    "name": "jQuery SmartPopover",
+    "title": "jQuery SmartPopover",
+    "description": "Auto layouting balloon popover always inside window for jQuery.",
+    "keywords": [
+        "popover",
+        "baloon",
+        "window",
+	"tooltip"
+    ],
+    "demo": "http://mofukuma.github.io/jquery.smartpopover/",
+    "version": "0.8.0",
+    "author": {
+        "name": "mofukuma",
+        "url": "http://kumaden.grrr.jp/"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/mofukuma/jquery.smartpopover/blob/master/README.md"
+        }
+    ],
+    "bugs": "https://github.com/mofukuma/jquery.smartpopover/issues",
+    "homepage": "https://github.com/mofukuma/jquery.smartpopover",
+    "docs": "https://github.com/mofukuma/jquery.smartpopover",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}
