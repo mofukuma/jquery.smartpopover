@@ -81,17 +81,19 @@
                 "z-index": zindex
             })
             .appendTo("body");
+
         var popdom = $(html).css({
             position: "absolute",
-            opacity: 0
-        }).appendTo(root);
+            opacity: 0.01
+        }).appendTo("body");
 
         //実測
         var pop = {
-            w: popdom.width(),
-            h: popdom.height()
+            w: popdom.outerWidth(true),
+            h: popdom.outerHeight(true)
         };
         popdom.hide();
+        popdom.remove().appendTo(root);
 
         //枠を作る
         var of = $(target).offset();
