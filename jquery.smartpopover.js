@@ -30,7 +30,7 @@
 
         var destroy = function(e) {
             if (e && e.target && 
-                $(e.target).parents().andSelf().filter(".js-smartpopover,.js-smartpopover-target").length > 0 )
+                $(e.target).parents().addBack().filter(".js-smartpopover,.js-smartpopover-target").length > 0 )
                      return;
 
             $(target).removeClass("js-smartpopover-target");
