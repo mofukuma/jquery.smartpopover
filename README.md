@@ -53,5 +53,5 @@ License
 © 2013, mofukuma. Released under the [MIT 
 License](http://www.opensource.org/licenses/mit-license.php).
 
- * Website http://kumaden.grrr.jp
+ * Website http://mofukuma.com
  * Twitter [@mofukuma](http://twitter.com/mofukuma)
