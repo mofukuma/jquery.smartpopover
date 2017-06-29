@@ -47,7 +47,7 @@ Other options
 ```
 
 
-Acknowledgements
+License
 ----------------
 
 © 2013, mofukuma. Released under the [MIT 
